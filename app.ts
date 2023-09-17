@@ -20,4 +20,5 @@ app.get("/", async (req: Request, res: Response) => {
 
 app.listen(port, () => {
   console.log("app is started");
+  console.log(`http://127.0.0.1:${port}`);
 });
