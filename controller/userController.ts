@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { Request, Response, response } from "express";
+import { Request, Response } from "express";
 
 const prisma = new PrismaClient();
 
@@ -14,7 +14,7 @@ exports.index = async (req: Request, res: Response) => {
 
 exports.store = async (req: Request, res: Response) => {
   try {
-    const { name, email }: { name: string; email: string } = req.body;
+    const { name, email } = req.body;
     const result = await prisma.user.create({
       data: {
         email: email,
