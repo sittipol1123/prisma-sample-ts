@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
-const webroute = require('./route/web');
+const webroute = require("./route/web");
 
 const prisma = new PrismaClient();
 const app: Express = express();
@@ -18,7 +18,8 @@ app.get("/", async (req: Request, res: Response) => {
   return res.json({ message: "hello", data });
 });
 
-app.listen(port, () => {
+app.listen(port, async () => {
   console.log("app is started");
   console.log(`http://127.0.0.1:${port}`);
+  await prisma.$connect();
 });
