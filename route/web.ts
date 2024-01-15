@@ -1,6 +1,6 @@
 import express, { Express } from "express";
 const router = express.Router();
-import TestController from "../controller/testController";
+import * as test from "../controller/testController";
 
 const usercontrol = require("../controller/userController");
 
@@ -10,6 +10,6 @@ router.get("/user/:id", usercontrol.find);
 router.put("/user/:id", usercontrol.update);
 router.delete("/user/:id", usercontrol.destroy);
 
-router.get("/test", TestController);
+router.post("/test", test.fileupload);
 
 module.exports = router;
